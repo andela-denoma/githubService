@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="github">
+  <head>
+    <meta charset="utf-8">
+    <title>Github search</title>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body ng-controller="GithubController">
+    <div class="heading">
+      <img src="img/download.PNG">
+      <h1><span>F</span>ind Users On Github</h1>
+    <form>
+      <input type="search" name="search" id="search" ng-model="text" placeholder="Enter a Name or Username..." required>
+      <button id="submit" ng-click="getData()">Search</button>
+    </form> 
+    </div>
+      <div ng-show="error" id="error">No Such User On Github</div>
+    <div id="container">
+      <ul ng-repeat="item in results" id="users">
+        <li>
+          <img ng-src="{{ item.avatar_url }}" class="image"/>
+            <div>
+            <span class="list"> Userscore : {{ item.score }} </span>
+            <span class="list"> UserLogin : {{ item.login }} </span>
+          </div>
+        </li>
+      </ul>
+  </div>
+    <footer>
+      <p>&copy; 2014 Enoma Deborah.</p>
+    </footer>
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
